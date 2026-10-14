@@ -1,0 +1,16 @@
+Update Bus | Enterprise Transit
+Busfermata Transport
+Consolidated Share Co.
+LEVEL:
+HOME
+📁 REGISTRATION
+Register New Bus
+⚙️ OPERATIONS
+Active Routes
+View Bus
+🛠️ MANAGEMENT
+Edit Details
+Remove Bus
+LOGOUT
+UPDATE REGISTRY
+FROM

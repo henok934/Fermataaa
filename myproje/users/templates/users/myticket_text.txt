@@ -1,0 +1,60 @@
+Passenger Details | BUSFERMATA
+System Message
+BUSFERMATA
+Digital Technology
+Home
+Book
+About Us
+Logout
+DAILY REVENUE
+ETB
+DOWNLOAD PDF
+PRINT PASS
+Busfermata Digital Tech
+LEVEL:
+OPERATOR NAME
+BOOKING REF / PNR
+Status:
+CONFIRMED
+Booked At:
+Passenger Name
+Gender
+From (መነሻ)
+To (መድረሻ)
+Plate No
+Side No
+Travel Date
+Departure Time
+11:30
+Email Address
+Issuing Agent
+System / Online
+Seat No
+Total Fare
+ETB
+()
+Ticket ID
+Busfermata Digital Tech
+LEVEL:
+OPERATOR NAME
+BOOKING REF / PNR
+Status:
+CONFIRMED
+Booked At:
+Passenger Name
+Gender
+From (መነሻ)
+To (መድረሻ)
+Plate No
+Side No
+Travel Date
+Departure Time
+11:30
+Email Address
+Issuing Agent
+System / Online
+Seat No
+Total Fare
+ETB
+()
+Ticket ID

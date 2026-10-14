@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="icon" type="image/jpeg" href="{% static 'images/l.jpeg' %}">
+    <link rel="icon" type="image/jpeg" href="{% static 'images/l.jpeg' %}">
+    <title>Distance Calculation</title>
+<style>
+.brand-logo {
+    border: none !important;      /* Removes the black border */
+    box-shadow: none !important;  /* Removes any surrounding shadow if present */
+    border-radius: 0;             /* Resets the rounded corners if necessary */
+}
+</style>
+<style>
+.brand-logo {
+    border: none !important;      /* Removes the black border */
+    box-shadow: none !important;  /* Removes any surrounding shadow if present */
+    border-radius: 0;             /* Resets the rounded corners if necessary */
+}
+</style>
+</head>
+<div class="top_bar" style="background-color: #005500; height: 40px; width: 100%; position: relative;">
+</div>
+<body>
+    <h1>Distance Calculation</h1>
+    <form action="/calculate" method="POST">
+        <label for="location1">Location 1</label>
+        <input type="text" id="location1" name="location1"><br><br>
+        <label for="location2">Location 2</label>
+        <input type="text" id="location2" name="location2"><br><br>
+        <input type="submit" value="Calculate Distance">
+    </form>
+    <script src="/static/js/translations.js?v=4.0"></script>
+</body>
+</html>

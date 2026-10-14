@@ -1,0 +1,31 @@
+Bus Management | Busfermata Digital Technology
+Support: +251 975143134
+LOGOUT
+Busfermata Digital Tech
+Consolidated Share Co.
+LEVEL:
+HOME
+Bus Registration
+Add New Bus
+Add New Route
+Operational Reports
+Route Data
+Bus Status
+Management
+Update Buss
+Active Route
+Route Delete
+Bus Change
+Route Delete
+Delete Ticket
+Delete Bus
+Operational Bus Replacement
+Dynamically swap out inventory units matching identical deployment level classifications.
+(Capacity Reconfigured:  Seats)
+#
+Departure
+Destination
+Date
+Current Bus (Side No)
+Available Side No Selection
+Action

@@ -1,0 +1,7 @@
+Scan to Pay - Telebirr
+This checkout URL is built and signed per Ethio Telecom's "Generate Checkout Url" spec (verified live: Telebirr's server accepts it and returns its real Web Pay page).
+Scan with telebirr
+ETB
+Order #
+Open the telebirr app and scan this code. It will take you to the telebirr checkout page to complete payment.
+Or open checkout page directly

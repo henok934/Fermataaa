@@ -1,0 +1,45 @@
+Busfermata | Deployment Registry
+System Administration Portal
+LOGOUT
+BUSFERMATA
+Digital Technology
+Registry
+Define New Route
+Register Share Company
+Add System Admin
+Register Ticket Agent
+Add Terminal Hub
+Set Service Tariff
+System Configuration
+Active Deployments
+Edit Share Company
+Update Bus (Bus)
+Tariff Adjustment
+System Analytics
+Route Mapping
+User Registry
+Revenue Analytics
+View Share Companies
+View Buses
+Passenger Feedback
+Booker Registry
+Booked Tickets
+Data Control
+Remove Admin
+Remove Share Co.
+Remove Terminal
+Delete Feedback
+Delete Booker Agent
+Delete Route
+Delete Ticket
+Initialize Route Deployment
+x
+✔
+Departure
+*
+Select City
+Destination
+*
+Select City
+Distance
+*

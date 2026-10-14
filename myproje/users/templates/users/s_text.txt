@@ -1,0 +1,37 @@
+Busfermata | National Admin Portal
+Ethiopian National Transport Standards
+LOGOUT
+BUSFERMATA
+Digital Technology
+Registry
+Define New Route
+Define New Route
+Add System Admin
+Register Ticket Agent
+Add Terminal Hub
+Set Service Tariff
+System Configuration
+Update Bus (Bus)
+Edit Share Company
+Active Deployments
+Tariff Adjustment
+System Analytics
+Route Mapping
+User Registry
+Revenue Analytics
+View Share Companies
+View Buses
+Passenger Feedback
+Booker Registry
+Booked Tickets
+Data Control
+Remove Admin
+Remove Share Company
+Remove Terminal
+Delete Feedback
+Delete Route
+Delete Booker Agent
+Delete Ticket
+Service Center Registry
+NATIONAL INFRASTRUCTURE EXPANSION PROTOCOL
+Service Center Name

@@ -1,0 +1,22 @@
+Bus Registration | Busfermata Digital Technology
+Support: +251 975143134
+LOGOUT
+Busfermata Digital Tech
+Consolidated Share Co.
+LEVEL:
+HOME
+Bus Registration
+Add New Bus
+Add New Route
+Operational Reports
+Route Data
+Bus Status
+Management
+Update Buss
+Active Route
+Route Delete
+Bus Change
+Delete Ticket
+Delete Bus
+NEW BUS REGISTRATION
+ID: AUTO-GEN

@@ -1,0 +1,23 @@
+Busfermata | Bus Status
+Busfermata
+Book My Ticket
+About Us
+Language
+English
+EN
+አማርኛ
+AM
+Afaan Oromoo
+OR
+ትግርኛ
+TI
+Login
+National Bus Deployment Updates
+#
+From
+To
+Date
+Old
+New
+No updates
+© 2026 Busfermata Digital Technology. All Rights Reserved.

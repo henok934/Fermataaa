@@ -1,0 +1,44 @@
+Loading...
+Route Selection | Busfermata Digital Tech
+Helpline:
++251975143134
+Logout
+Busfermata Digital Tech
+Consolidated Share Co.
+LEVEL:
+Home
+Registry
+Define New Route
+Add New Bus
+Add Special Route
+Register Share Co.
+Add System Admin
+Register Ticket Agent
+Add Terminal Hub
+Set Tariff Fee
+Operational
+Active Deployments
+Route Data
+Bus Status
+Change Bus
+Active Route
+Analytics
+Route Mapping
+Booked Tickets
+Revenue Analytics
+View Share Cos.
+User Registry
+View Buses
+Passenger Feedback
+Booker Registry
+Data Control
+Update Bus
+Delete Route
+Delete Ticket
+Delete Bus
+Remove Admin
+Remove Share Co.
+Remove Terminal
+Delete Feedback
+Delete Booker Agent
+From Date

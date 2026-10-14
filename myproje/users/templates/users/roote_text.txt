@@ -1,0 +1,36 @@
+Busfermata | Select Your Route
+Ethiopian National Transport Standards
+STAFF LOGIN
+BUSFERMATA
+Digital Technology
+Home
+About Us
+My Ticket
+Language
+English
+EN
+አማርኛ
+AM
+Afaan Oromoo
+OR
+ትግርኛ
+TI
+BOOK NOW
+Available Departures
+Found Routes for:
+1. Select Bus
+2. Choose Seat fill form
+3. Payment
+4. print / Download
+No.
+Route & Bus Details
+Bus Level
+Departure Date
+Ticket Price
+Availability
+Action
+.
+Premium
+ETB
+It remains
+Sold Out

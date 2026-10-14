@@ -1,0 +1,30 @@
+Ticket Deletion | Busfermata Digital Technology
+Support: +251 975143134
+LOGOUT
+Busfermata Digital Tech
+Consolidated Share Co.
+LEVEL:
+HOME
+Bus Registration
+Add New Bus
+Add New Route
+Operational Reports
+Route Data
+Bus Status
+Management
+Update Buss
+Active Route
+Route Delete
+Bus Change
+Delete Ticket
+Delete Bus
+Manifest Ticket Deletion
+Locate and safely delete individual passenger items inside active travel routing runs.
+#
+Passenger Name
+Phone Number
+Departure
+Destination
+Travel Date
+Plate No
+Action

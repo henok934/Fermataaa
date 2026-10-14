@@ -1,0 +1,21 @@
+Loading...
+Bus Registry | Enterprise System
+BUS CONTROL CENTER
+LOGOUT
+Busfermata Digital Tech
+Consolidated Share Co.
+LEVEL:
+HOME
+📁 REGISTRATION
+Register New Bus
+Add New Route
+⚙️ OPERATIONS
+Active Routes
+View Bus
+🛠️ MANAGEMENT
+Edit Details
+Active Route
+Route Delete
+Remove Bus
+FILTER
+FROM

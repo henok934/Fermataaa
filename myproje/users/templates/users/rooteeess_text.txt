@@ -1,0 +1,25 @@
+Management Portal | Busfermata Digital Technology
+Support: +251 975 143 134
+LOGOUT
+Busfermata Digital Tech
+Consolidated Share Co.
+LEVEL:
+HOME
+Bus Registration
+Add New Bus
+Add New Route
+Operational Reports
+Route Data
+Bus Status
+Management
+Update Buss
+Active Route
+Route Delete
+Bus Change
+Route Delete
+Delete Ticket
+Delete Bus
+HI,
+Welcome to  Share Company
+SYSTEM ACTIVE
+REPORT START DATE

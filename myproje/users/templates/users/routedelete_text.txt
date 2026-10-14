@@ -1,0 +1,45 @@
+Busfermata | Delete Route
+Route System Analytics Center | Support:
++251975143134
+LOGOUT
+Registry Error
+Success Operation
+BUSFERMATA
+Digital Technology
+Registry
+Define New Route
+Register Share Company
+Add System Admin
+Register Ticket Agent
+Add Terminal Hub
+Set Service Tariff
+System Configuration
+Active Deployments
+Change Bus
+Edit Share Company
+Tariff Adjustment
+System Analytics
+Route Mapping
+Booked Tickets
+Revenue Analytics
+View Share Companies
+User Registry
+View Buses
+Passenger Feedback
+Booker Registry
+Data Control
+Remove Admin
+Remove Share Co.
+Remove Terminal
+Delete Feedback
+Delete Booker Agent
+Delete Route
+Delete Ticket
+Network Route Deletion
+Warning: This action will cancel all active bookings for the selected route.
+ID
+Route Map (Origin to Destination)
+Travel Date
+Side Number
+Plate Number
+Action

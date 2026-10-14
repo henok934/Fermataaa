@@ -1,0 +1,22 @@
+Bus Inventory | Busfermata National Administration
+REGIONAL ROUTE SUPPORT: +251 975 143 134
+Logout System
+Busfermata Digital Tech
+Consolidated Share Co.
+Home Dashboard
+REGISTRATION
+ADD NEW BUS
+Add New Route
+OPERATIONAL
+ROUTE RECORDS
+BUS STATUS
+MANAGEMENT
+UPDATE ASSETS
+Active Route
+Route Delete
+Bus Change
+Route Delete
+Delete Ticket
+DELETE ASSET
+National Bus Records
+From

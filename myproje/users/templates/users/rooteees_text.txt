@@ -1,0 +1,22 @@
+Loading...
+Route Selection | Busfermata Digital Tech
+Busfermata Digital Tech
+Consolidated Share Co.
+LEVEL:
+HOME
+REGISTRATION
+Add New Bus
+Add New Route
+OPERATIONAL
+Route Data
+Bus Status
+MANAGEMENT
+Update Buss
+Active Route
+Route Delete
+Bus Change
+Route Delete
+Delete Ticket
+Delete Bus
+LOGOUT
+FROM DATE

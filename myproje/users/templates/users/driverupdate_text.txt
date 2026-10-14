@@ -1,0 +1,26 @@
+bus update
++251 975143134
+LOGOUT
+TRANSIT SYSTEM
+Share Company
+HOME
+Bus Register
+Register New
+Update Bus
+Edit Details
+VIEW DATA
+Routes
+Bus
+DELETE ACTIONS
+Remove Bus
+✔
+X
+X
+No
+Plate No
+Side No
+username
+phone
+new Phone
+new username
+Action

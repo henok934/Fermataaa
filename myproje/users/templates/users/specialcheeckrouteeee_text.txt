@@ -1,0 +1,28 @@
+Busfermata | Check Route
+Support: +251 975143134
+LOGOUT
+System Message
+Busfermata Digital Tech
+Consolidated Share Co.
+LEVEL:
+HOME
+Bus Registration
+Add New Bus
+Add New Route
+Operational Reports
+Route Data
+Bus Status
+Management
+Update Buss
+Active Route
+Route Delete
+Bus Change
+Route Delete
+Delete Ticket
+Delete Bus
+Ticket Inquiry
+From:
+Select
+To:
+Select
+Date:

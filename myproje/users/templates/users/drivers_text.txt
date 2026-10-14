@@ -1,0 +1,63 @@
+Busfermata | Booker Registry
+Support:
++251975143134
+LOGOUT
+BUSFERMATA
+Digital Technology
+Registry
+Define New Route (Disabled)
+Register Share Company (Disabled)
+Add System Admin (Disabled)
+Register Ticket Agent (Disabled)
+Add Terminal Hub (Disabled)
+Set Service Tariff (Disabled)
+System Configuration
+Active Deployments (Disabled)
+Change Bus (Disabled)
+Edit Share Company (Disabled)
+System Analytics
+Route Mapping (Disabled)
+Booked Tickets (Disabled)
+Revenue Analytics (Disabled)
+View Share Companies (Disabled)
+User Registry (Disabled)
+View Buses (Disabled)
+Passenger Feedback (Disabled)
+Booker Registry (Disabled)
+Data Control
+Remove Admin (Disabled)
+Remove Share Co. (Disabled)
+Remove Terminal (Disabled)
+Delete Feedback (Disabled)
+Delete Booker Agent (Disabled)
+Delete Route (Disabled)
+Delete Ticket (Disabled)
+Booker / Driver Registry
+No.
+First Name
+Father Name
+User Name
+Phone
+City
+Status
+Active
+Inactive (ያልነቃ)
+No records found
+Busfermata
+.
+Modernizing Ethiopian transportation through secure, reliable, and efficient digital ticketing and fleet management solutions.
+Quick Links
+Dashboard
+System Users
+Bus View
+Routes
+System Configuration
+Register Company
+Set Tariffs
+Update Bus (Bus)
+Transactions
+Contact Support
++251 975 143 134
+info@Busfermata.com
+Addis Ababa, Ethiopia
+© 2026 Busfermata Digital Technology. All Rights Reserved.

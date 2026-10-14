@@ -1,0 +1,31 @@
+Busfermata | Delete Route
+Support: +251 975143134
+LOGOUT
+Busfermata Digital Tech
+Consolidated Share Co.
+LEVEL:
+HOME
+Bus Registration
+Add New Bus
+Add New Route
+Operational Reports
+Route Data
+Bus Status
+Management
+Update Buss
+Active Route
+Route Delete
+Bus Change
+Route Delete
+Delete Ticket
+Delete Bus
+Network Route Deletion
+Warning: This action will cancel all active bookings for the selected route.
+ID
+Route Map (Origin to Destination)
+Schedule Details
+Travel Date
+Side Number
+Plate Number
+Action
+Operator:

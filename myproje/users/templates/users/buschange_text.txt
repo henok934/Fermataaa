@@ -1,0 +1,46 @@
+Busfermata | Update Bus
+System Administration Portal
+LOGOUT
+BUSFERMATA
+Digital Technology
+Registry
+Define New Route (Disabled)
+Register Share Company
+Add System Admin
+Register Ticket Agent
+Add Terminal Hub
+Set Service Tariff
+System Configuration
+Active Deployments
+Change Bus
+Edit Share Company
+Tariff Adjustment
+System Analytics
+Route Mapping
+Booked Tickets
+Revenue Analytics
+View Share Companies
+User Registry
+View Buses
+Passenger Feedback
+Booker Registry
+Data Control
+Remove Admin
+Remove Share Co.
+Remove Terminal
+Delete Feedback
+Delete Booker Agent
+Delete Route
+Delete Ticket
+Operational Bus Replacement
+Select an active route profile to dynamically isolate and swap mechanical inventory units matching standards.
+(Capacity Reconfigured:  Seats)
+#
+Departure
+Destination
+Date
+Current Bus (Side No)
+Target Level
+New Bus Name
+New Bus Identifiers (Side / Plate)
+Action

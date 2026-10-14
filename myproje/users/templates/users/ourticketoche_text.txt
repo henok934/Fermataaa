@@ -1,0 +1,20 @@
+Busfermata Digital Technology - Manifest
+Busfermata Digital Tech
+Consolidated Share Co.
+LEVEL:
+HOME
+Bus Registration
+Add New Bus
+Add New Route
+Operational Reports
+Route Data
+Bus Status
+Management
+Active Route
+Route Delete
+Bus Change
+Route Delete
+Update Buss
+Delete Bus
+LOGOUT
+RANGE:

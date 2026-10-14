@@ -1,0 +1,43 @@
+Busfermata | Deployment Registry
+System Administration Portal
+LOGOUT
+BUSFERMATA
+Digital Technology
+Registry
+Define New Route (Disabled)
+Register Share Company (Disabled)
+Add System Admin (Disabled)
+Register Ticket Agent (Disabled)
+Add Terminal Hub (Disabled)
+Set Service Tariff (Disabled)
+System Configuration
+Active Deployments (Disabled)
+Change Bus (Disabled)
+Edit Share Company (Disabled)
+System Analytics
+Route Mapping (Disabled)
+Booked Tickets (Disabled)
+Revenue Analytics (Disabled)
+View Share Companies (Disabled)
+User Registry (Disabled)
+View Buses (Disabled)
+Passenger Feedback (Disabled)
+Booker Registry (Disabled)
+Data Control
+Remove Admin (Disabled)
+Remove Share Co. (Disabled)
+Remove Terminal (Disabled)
+Delete Feedback (Disabled)
+Delete Booker Agent (Disabled)
+Delete Route (Disabled)
+Delete Ticket (Disabled)
+Deployment Route Configuration
+Establish master route records and legal schedules
+Departure
+*
+Select City
+Destination
+*
+Select City
+Distance
+*

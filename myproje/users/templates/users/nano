@@ -1,0 +1,47 @@
+import re
+
+# all_texts_2.txt ፋይልን ማንበብ
+with open('all_texts.txt', 'r', encoding='utf-8', errors='ignore') as f:
+    lines = f.readlines()
+
+english_list = []
+amharic_list = []
+oromo_list = []
+tigrinya_list = []
+
+for line in lines:
+    text = line.strip()
+    if not text or text.startswith('==') or text.startswith('FILE:'):
+        continue
+    clean_text = re.sub(r'^-\s*', '', text)
+    if not clean_text:
+        continue
+
+    # የቋንቋ ምደባ (Classification Logic)
+    if re.search(r'[\u1200-\u137F]', clean_text):
+        if clean_text not in amharic_list:
+            amharic_list.append(clean_text)
+    elif 'አልቋል' in clean_text or 'TI' == clean_text:
+        if clean_text not in tigrinya_list:
+            tigrinya_list.append(clean_text)
+    elif 'Oromoo' in clean_text or 'OR' == clean_text:
+        if clean_text not in oromo_list:
+            oromo_list.append(clean_text)
+    else:
+        if clean_text not in english_list:
+            english_list.append(clean_text)
+
+# ውጤቶቹን ወደየራሳቸው ፋይሎች መጻፍ
+with open('english_texts.txt', 'w', encoding='utf-8') as f:
+    f.write('\n'.join(english_list))
+
+with open('amharic_texts.txt', 'w', encoding='utf-8') as f:
+    f.write('\n'.join(amharic_list))
+
+with open('oromo_texts.txt', 'w', encoding='utf-8') as f:
+    f.write('\n'.join(oromo_list))
+
+with open('tigrinya_texts.txt', 'w', encoding='utf-8') as f:
+    f.write('\n'.join(tigrinya_list))
+
+print('እጅግ አሪፍ! ጽሁፎቹ በተሳካ ሁኔታ ወደ 4 ፋይሎች ተከፍለዋል!')

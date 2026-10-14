@@ -1,0 +1,9 @@
+Payment Status - Telebirr
+Payment Successful
+Thank you! Your ticket is confirmed.
+Payment Failed
+Your payment could not be completed.
+Pending
+We're still confirming your payment.
+Order # ·  ETB
+Trans ID:

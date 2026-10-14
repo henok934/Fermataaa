@@ -1,0 +1,55 @@
+Busfermata | Booked Tickets
+Support:
++251975143134
+LOGOUT
+BUSFERMATA
+Digital Technology
+Registry
+Define New Route
+Register Share Company
+Add System Admin
+Register Ticket Agent
+Add Terminal Hub
+Set Service Tariff
+System Configuration
+Active Deployments
+Edit Share Company
+Update Bus (Bus)
+Tariff Adjustment
+System Analytics
+Route Mapping
+User Registry
+Revenue Analytics
+View Share Companies
+View Buses
+Passenger Feedback
+Booker Registry
+Booked Tickets
+Data Control
+Remove Admin
+Remove Share Co.
+Remove Terminal
+Delete Feedback
+Delete Booker Agent
+Delete Route
+Delete Ticket
+Ticket Transaction Log
+No.
+First Name
+Father Name
+Phone
+Departure
+Destination
+Date
+Seat No
+Price
+Passenger Type
+Side No
+Plate No
+No records available.
+Busfermata
+.
+Integrated Transport Fiscal Management Portal.
+Support: +251 975 143 134
+Addis Ababa, Ethiopia
+© 2026 Busfermata Digital Technology.

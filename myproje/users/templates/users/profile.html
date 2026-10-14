@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="icon" type="image/jpeg" href="{% static 'images/l.jpeg' %}">
+    <title>Busfermata | System Admin Profile</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bootstrap 4 & Tailwind CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        :root {
+            --brand-navy: #00264d;
+            --brand-gold: #ffcc00;
+            --brand-dark: #0f172a;
+            --ethiopia-green: #2e7d32;
+            --surface-gray: #f8fafc;
+            --text-main: #1e293b;
+        }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background: var(--surface-gray); 
+            color: var(--text-main);
+            margin: 0;
+        }
+
+        /* --- TOP BAR --- */
+        .top-bar {
+            background: var(--brand-dark);
+            color: white;
+            padding: 10px 0;
+            font-size: 13px;
+        }
+
+        /* --- ALWAYS VISIBLE NAVBAR --- */
+        .navbar-main {
+            background: #ffffff;
+            padding: 12px 0;
+            border-bottom: 4px solid var(--brand-gold);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+        }
+
+        .nav-controls-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .custom-nav-select {
+            border: 2px solid #cbd5e1;
+            background-color: #ffffff;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 8px;
+            height: 40px;
+            min-width: 160px;
+            color: var(--brand-navy);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            outline: none;
+            padding: 0 10px;
+        }
+
+        .custom-nav-select:hover, .custom-nav-select:focus {
+            border-color: var(--brand-navy);
+            box-shadow: 0 4px 12px rgba(0,38,77,0.12);
+        }
+
+        .maintenance-select {
+            border-color: #fecdd3 !important;
+            color: #e11d48 !important;
+            background-color: #fff1f2;
+        }
+        .maintenance-select:hover {
+            border-color: #e11d48 !important;
+            box-shadow: 0 4px 12px rgba(225,29,72,0.15) !important;
+        }
+
+        /* --- CARDS & UI --- */
+        .card-modern {
+            background: white;
+            border-radius: 16px;
+            border: none;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .form-control-modern {
+            background: #f1f5f9;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 12px 15px;
+            font-weight: 600;
+            height: 48px;
+            transition: 0.3s;
+        }
+        .form-control-modern:focus {
+            background: #ffffff;
+            border-color: var(--brand-navy);
+            box-shadow: 0 0 0 3px rgba(0,38,77,0.1);
+        }
+
+        .btn-action {
+            background: var(--brand-navy);
+            color: white;
+            font-weight: 800;
+            text-transform: uppercase;
+            border-radius: 10px;
+            padding: 14px;
+            border: none;
+            width: 100%;
+            transition: 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-action:hover {
+            background: #001a33;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,38,77,0.25);
+        }
+
+        .footer-main { 
+            background: var(--brand-navy); 
+            color: white; 
+            padding: 40px 0 20px; 
+            margin-top: 60px; 
+            text-align: center;
+            border-top: 5px solid var(--brand-gold);
+        }
+
+        .strength-bar {
+            height: 6px;
+            border-radius: 3px;
+            transition: all 0.3s ease-in-out;
+            width: 0%;
+        }
+
+        .password-toggle-icon {
+            position: absolute;
+            right: 15px;
+            top: 40px;
+            cursor: pointer;
+            color: #64748b;
+        }
+
+        .profile-avatar-clickable {
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .profile-avatar-clickable:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2) !important;
+        }
+
+        /* Hide Google Translate UI */
+        .goog-te-banner-frame, .goog-te-banner, .skiptranslate, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; } 
+        body { top: 0px !important; position: static !important; } 
+    </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+    <div class="container d-flex justify-content-between align-items-center">
+        <span class="font-bold flex items-center gap-2">
+            <i class="fas fa-shield-check text-emerald-400"></i> System Administration Portal
+        </span>
+        <a href="{% url 'logout' %}" class="text-rose-400 hover:text-rose-300 font-extrabold text-xs tracking-wider uppercase no-underline flex items-center gap-1">
+            <i class="fas fa-power-off"></i> LOGOUT
+        </a>
+    </div>
+</div>
+
+<!-- FIXED VISIBLE NAVIGATION BAR -->
+<div class="navbar-main">
+    <div class="container d-flex justify-content-between align-items-center flex-wrap">
+        
+        <!-- Brand Logo & Title -->
+        <a href="{% url 'home' %}" class="d-flex align-items-center text-decoration-none my-1">
+            <img src="{% static 'images/l.jpeg' %}" class="mr-3" alt="Busfermata Logo" style="width: 60px; height: 50px; object-fit: contain;">
+            <div>
+                <h2 class="m-0" style="color: #0A3977; font-weight: 800; font-size: 20px; line-height: 1;">BUSFERMATA</h2>
+                <span style="color:#007A78; font-weight:700; font-size: 11px; letter-spacing: 0.5px;">Digital Technology</span>
+            </div>
+        </a>
+
+        <!-- ALWAYS VISIBLE SELECT DROPDOWNS -->
+        <div class="nav-controls-wrapper my-1">
+
+            <!-- 1. REGISTRY SELECT -->
+            <select onchange="if(this.value != '#') location.href = this.value;" class="custom-nav-select">
+                <option value="#" selected disabled>📋 Registry</option>
+                <option value="{% url 'route' %}" {% if not user.is_approved %}disabled style="color: #999;"{% endif %}>
+                    ➕ Define New Route
+                </option>
+                {% if user.city == "Addis Ababa" %}
+                    <option value="{% url 'sc' %}" {% if not user.is_approved %}disabled style="color: #999;"{% endif %}>
+                        🏢 Register Share Company
+                    </option>
+                    <option value="{% url 'registor' %}" {% if not user.is_approved %}disabled style="color: #999;"{% endif %}>
+                        👤 Add System Admin
+                    </option>
+                    <option value="{% url 'worker' %}" {% if not user.is_approved %}disabled style="color: #999;"{% endif %}>
+                        🎫 Register Ticket Agent
+                    </option>
+                    <option value="{% url 'city' %}" {% if not user.is_approved %}disabled style="color: #999;"{% endif %}>
+                        🏙️ Add Terminal Hub
+                    </option>
+                    <option value="{% url 'service_fee' %}" {% if not user.is_approved %}disabled style="color: #999;"{% endif %}>
+                        💵 Set Service Tariff
+                    </option>
+                {% endif %}
+            </select>
+
+            <!-- 2. SYSTEM CONFIGURATION SELECT -->
+            <select onchange="if(this.value != '#') location.href = this.value;" class="custom-nav-select">
+                <option value="#" selected disabled>⚙️ System Config</option>
+                <option value="{% url 'active' %}" {% if not user.is_approved %}disabled style="color: #999;"{% endif %}>
+                    🟢 Active Deployments
+                </option>
+                <option value="{% url 'act' %}" {% if not user.is_approved %}disabled style="color: #999;"{% endif %}>
+                    🚌 Change Bus
+                </option>
+                {% if user.city == "Addis Ababa" %}
+                    <option value="{% url 'scupdate' %}" {% if not user.is_approved %}disabled style="color: #999;"{% endif %}>
+                        ✏️ Edit Share Company
+                    </option>
+                {% endif %}
+                <option value="{% url 'userprofile' %}" {% if not user.is_approved %}disabled style="color: #999;"{% endif %}>
+                    👤 Edit Profile
+                </option>
+            </select>
+
+            <!-- 3. SYSTEM ANALYTICS SELECT -->
+            <select onchange="if(this.value != '#') location.href = this.value;" class="custom-nav-select">
+                <option value="#" selected disabled>📊 System Analytics</option>
+                <option value="{% url 'routes' %}" {% if not user.is_approved %}disabled style="color: #999;"{% endif %}>
+                    🗺️ Route Mapping
+                </option>
+                <option value="{% url 'ticketinfo' %}" {% if not user.is_approved %}disabled style="color: #999;"{% endif %}>
+                    🎟️ Booked Tickets
+                </option>
+                <option value="{% url 'totalballance' %}" {% if not user.is_approved %}disabled style="color: #999;"{% endif %}>
+                    💰 Revenue Analytics
+                </option>
+                <option value="{% url 'sce' %}" {% if not user.is_approved %}disabled style="color: #999;"{% endif %}>
+                    🏬 View Share Companies
+                </option>
+                {% if user.city == "Addis Ababa" %}
+                    <option value="{% url 'users' %}" {% if not user.is_approved %}disabled style="color: #999;"{% endif %}>
+                        👥 User Registry
+                    </option>
+                    <option value="{% url 'buses' %}" {% if not user.is_approved %}disabled style="color: #999;"{% endif %}>
+                        🚍 View Buses
+                    </option>
+                    <option value="{% url 'comments' %}" {% if not user.is_approved %}disabled style="color: #999;"{% endif %}>
+                        💬 Passenger Feedback
+                    </option>
+                {% endif %}
+                <option value="{% url 'driver' %}" {% if not user.is_approved %}disabled style="color: #999;"{% endif %}>
+                    📋 Booker Registry
+                </option>
+            </select>
+
+            <!-- 4. DATA CONTROL SELECT (MAINTENANCE) -->
+            <select onchange="if(this.value != '#') location.href = this.value;" class="custom-nav-select maintenance-select">
+                <option value="#" selected disabled>🗑️ Data Control</option>
+                {% if user.city == "Addis Ababa" %}
+                    <option value="{% url 'admindelete' %}" {% if not user.is_approved %}disabled style="color: #999;"{% endif %}>❌ Remove Admin</option>
+                    <option value="{% url 'scdelete' %}" {% if not user.is_approved %}disabled style="color: #999;"{% endif %}>❌ Remove Share Co.</option>
+                    <option value="{% url 'citydelete' %}" {% if not user.is_approved %}disabled style="color: #999;"{% endif %}>❌ Remove Terminal</option>
+                    <option value="{% url 'commentdelete' %}" {% if not user.is_approved %}disabled style="color: #999;"{% endif %}>❌ Delete Feedback</option>
+                    <option value="{% url 'workerdelete' %}" {% if not user.is_approved %}disabled style="color: #999;"{% endif %}>❌ Delete Booker Agent</option>
+                {% endif %}
+                <option value="{% url 'routedelete' %}" {% if not user.is_approved %}disabled style="color: #999;"{% endif %}>❌ Delete Route</option>
+                <option value="{% url 'delete_ticket' %}" {% if not user.is_approved %}disabled style="color: #999;"{% endif %}>❌ Delete Ticket</option>
+            </select>
+
+        </div>
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-12">
+            {% if messages %}
+                {% for message in messages %}
+                    <script>
+                        Swal.fire({
+                            icon: "{% if message.tags == 'success' %}success{% else %}error{% endif %}",
+                            title: "{% if message.tags == 'success' %}Success{% else %}Error{% endif %}",
+                            text: "{{ message }}",
+                            confirmColor: '#00264d'
+                        });
+                    </script>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- PROFILE CARD -->
+        <div class="col-lg-4 mb-4">
+            <div class="card card-modern text-center h-100 p-0 overflow-hidden shadow-sm">
+                <div style="background: var(--brand-navy); height: 100px;"></div>
+                <div style="margin-top: -50px;">
+                    <!-- Clickable Avatar -->
+                    <img src="{% static 'images/pro.png' %}" 
+                         onclick="openProfilePopup()" 
+                         class="rounded-circle border border-white mx-auto shadow-sm profile-avatar-clickable" 
+                         style="width: 110px; height: 110px; object-fit: cover; border-width: 5px !important;"
+                         title="Click to view full profile details">
+                </div>
+                <div class="p-4">
+                    <h4 class="font-weight-bold profile-avatar-clickable" onclick="openProfilePopup()" style="color: var(--brand-navy);">
+                        {{ user.first_name }} {{ user.last_name }}
+                    </h4>
+                    
+                    <p class="small font-weight-bold text-uppercase mb-3">
+                        {% if user.city == "Addis Ababa" %}
+                            <span style="color: #dc3545;"><i class="fas fa-crown mr-1"></i> Super Admin</span>
+                        {% else %}	
+                            <span style="color: #1e40af; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+                                <i class="fas fa-user-shield" style="color: #2563eb;"></i> Subadmin
+                                <span style="background: #e0f2fe; color: #0369a1; padding: 2px 8px; border: 1px solid #bae6fd; border-radius: 6px; font-size: 85%; font-weight: 800; letter-spacing: 0.3px;">
+                                    {{ user.city }}
+                                </span>
+                            </span>
+                        {% endif %}
+                    </p>
+
+                    <button onclick="openProfilePopup()" class="btn btn-sm btn-outline-primary mb-3 text-xs font-bold uppercase rounded-pill px-3">
+                        <i class="fas fa-id-card mr-1"></i> View Interactive Profile
+                    </button>
+
+                    <div class="badge badge-success p-2 px-3 d-block" style="background: var(--ethiopia-green); border-radius: 6px;">
+                        <i class="fas fa-check-circle mr-1"></i> STATUS: ACTIVE
+                    </div>
+                    <hr class="my-4">
+                    <div class="text-left small font-weight-bold text-muted">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>REGISTRY ID:</span>
+                            <span class="text-dark">{{ user.phone }}</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span>SECURITY LEVEL:</span>
+                            {% if user.city == "Addis Ababa" %}
+                                <span class="badge badge-danger text-uppercase px-2 py-1" style="font-size: 10px;">Tier 1 (Global Master)</span>
+                            {% else %}
+                                <span class="badge badge-primary text-uppercase px-2 py-1" style="font-size: 10px;">Tier 2 Regional Hub</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FORM -->
+        <div class="col-lg-8 mb-4">
+            <div class="card card-modern p-4 h-100 shadow-sm">
+                <div class="d-flex align-items-center mb-4">
+                    <i class="fas fa-shield-alt text-warning mr-3" style="font-size: 24px;"></i>
+                    <div>
+                        <h6 class="font-weight-bold text-uppercase m-0" style="font-size: 14px; letter-spacing: 1px;">
+                            International Security Protocol Sync
+                        </h6>
+                        <span class="text-muted text-xs">Enforcing Global Standard Encryption Standards</span>
+                    </div>
+                </div>
+                
+                <form id="passwordForm" action="{% url 'change_password' %}" method="POST" onsubmit="return validateForm(event)">
+                    {% csrf_token %}
+                    <div class="row">
+                        <!-- Current Password -->
+                        <div class="col-12 form-group mb-3 position-relative">
+                            <label class="small font-weight-bold text-muted">CURRENT ACCESS KEY</label>
+                            <input id="currentPassword" name="currentPassword" type="password" class="form-control form-control-modern" placeholder="Enter existing password" required>
+                            <i class="fas fa-eye password-toggle-icon" onclick="togglePassword('currentPassword', this)"></i>
+                        </div>
+
+                        <!-- New Password -->
+                        <div class="col-md-6 form-group mb-3 position-relative">
+                            <label class="small font-weight-bold text-muted">NEW SECURITY KEY</label>
+                            <input id="newPassword" name="newPassword" type="password" class="form-control form-control-modern" placeholder="Set new access key" oninput="checkPasswordStrength(this.value)" required>
+                            <i class="fas fa-eye password-toggle-icon" onclick="togglePassword('newPassword', this)"></i>
+                            
+                            <!-- Strength Indicator Bar -->
+                            <div class="w-full bg-gray-200 rounded-full h-1.5 mt-2">
+                                <div id="strengthBar" class="strength-bar bg-red-500"></div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mt-1">
+                                <span id="strengthText" class="text-xs font-bold text-gray-500">Strength: Too Short</span>
+                            </div>
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div class="col-md-6 form-group mb-3 position-relative">
+                            <label class="small font-weight-bold text-muted">CONFIRM NEW KEY</label>
+                            <input id="reNewPassword" name="reNewPassword" type="password" class="form-control form-control-modern" placeholder="Validate new key" oninput="checkMatch()" required>
+                            <i class="fas fa-eye password-toggle-icon" onclick="togglePassword('reNewPassword', this)"></i>
+                            <span id="matchText" class="text-xs font-bold mt-1 d-block"></span>
+                        </div>
+
+                        <!-- International Password Rules Live Checklist -->
+                        <div class="col-12 mb-4 bg-slate-50 p-3 rounded-lg border border-slate-200">
+                            <span class="text-xs font-bold text-slate-700 block mb-2 uppercase">Global Security Requirements:</span>
+                            <div class="grid grid-cols-2 gap-2 text-xs font-semibold">
+                                <div id="rule-length" class="text-slate-400"><i class="fas fa-circle text-xs mr-1"></i> Min. 8 Characters</div>
+                                <div id="rule-upper" class="text-slate-400"><i class="fas fa-circle text-xs mr-1"></i> Upper & Lowercase Letters</div>
+                                <div id="rule-number" class="text-slate-400"><i class="fas fa-circle text-xs mr-1"></i> At least 1 Number (0-9)</div>
+                                <div id="rule-special" class="text-slate-400"><i class="fas fa-circle text-xs mr-1"></i> At least 1 Symbol (@#$%^&*)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-action">
+                        <i class="fas fa-sync-alt mr-2"></i> Synchronize Global Credentials
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- PROFILE POPUP MODAL -->
+<div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content rounded-2xl border-0 overflow-hidden shadow-2xl">
+            <div class="bg-gradient-to-r from-slate-900 to-blue-900 p-6 text-white text-center relative">
+                <button type="button" class="close absolute right-4 top-4 text-white opacity-80 hover:opacity-100" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+                <img src="{% static 'images/pro.png' %}" class="w-24 h-24 rounded-full border-4 border-white mx-auto shadow-md mb-2">
+                <h3 class="text-xl font-bold">{{ user.first_name }} {{ user.last_name }}</h3>
+                <span class="bg-yellow-400 text-slate-900 font-extrabold text-xs px-3 py-1 rounded-full uppercase tracking-wider">
+                    {{ user.city|default:"System Administrator" }}
+                </span>
+            </div>
+            <div class="p-6 bg-white space-y-4 text-sm font-semibold">
+                <div class="flex justify-between items-center border-b pb-2">
+                    <span class="text-gray-500"><i class="fas fa-phone mr-2 text-blue-600"></i> Phone / ID</span>
+                    <span class="text-gray-800 font-bold">{{ user.phone }}</span>
+                </div>
+                <div class="flex justify-between items-center border-b pb-2">
+                    <span class="text-gray-500"><i class="fas fa-envelope mr-2 text-blue-600"></i> Email Address</span>
+                    <span class="text-gray-800 font-bold">{{ user.email|default:"admin@busfermata.com" }}</span>
+                </div>
+                <div class="flex justify-between items-center border-b pb-2">
+                    <span class="text-gray-500"><i class="fas fa-map-marker-alt mr-2 text-blue-600"></i> Regional Hub</span>
+                    <span class="text-gray-800 font-bold">{{ user.city }}</span>
+                </div>
+                <div class="flex justify-between items-center border-b pb-2">
+                    <span class="text-gray-500"><i class="fas fa-shield-alt mr-2 text-blue-600"></i> Account Status</span>
+                    <span class="text-green-600 font-bold"><i class="fas fa-check-circle mr-1"></i> Verified & Active</span>
+                </div>
+                <div class="pt-2 text-center">
+                    <button data-dismiss="modal" class="w-full bg-slate-900 text-white font-bold py-2 rounded-xl hover:bg-slate-800 transition">
+                        Close Profile
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer-main">
+    <div class="container">
+        <h3 class="mb-2" style="font-weight: 800; font-size: 20px;">Busfermata Digital Technology</h3>
+        <p class="small opacity-75">Integrated Transport Information Systems • Ethiopia Core Division</p>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    function togglePassword(inputId, iconElement) {
+        const input = document.getElementById(inputId);
+        if (input.type === "password") {
+            input.type = "text";
+            iconElement.classList.remove("fa-eye");
+            iconElement.classList.add("fa-eye-slash");
+        } else {
+            input.type = "password";
+            iconElement.classList.remove("fa-eye-slash");
+            iconElement.classList.add("fa-eye");
+        }
+    }
+
+    let currentStrengthScore = 0;
+
+    function checkPasswordStrength(password) {
+        const bar = document.getElementById('strengthBar');
+        const text = document.getElementById('strengthText');
+
+        const hasLength = password.length >= 8;
+        const hasUpperLower = /[a-z]/.test(password) && /[A-Z]/.test(password);
+        const hasNumber = /[0-9]/.test(password);
+        const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+        updateRuleUI('rule-length', hasLength);
+        updateRuleUI('rule-upper', hasUpperLower);
+        updateRuleUI('rule-number', hasNumber);
+        updateRuleUI('rule-special', hasSpecial);
+
+        let score = 0;
+        if (hasLength) score++;
+        if (hasUpperLower) score++;
+        if (hasNumber) score++;
+        if (hasSpecial) score++;
+
+        currentStrengthScore = score;
+
+        if (password.length === 0) {
+            bar.style.width = '0%';
+            text.innerText = 'Strength: Empty';
+            text.className = 'text-xs font-bold text-gray-500';
+        } else if (score <= 1) {
+            bar.style.width = '25%';
+            bar.className = 'strength-bar bg-red-500';
+            text.innerText = 'Strength: Weak (Unsafe)';
+            text.className = 'text-xs font-bold text-red-500';
+        } else if (score === 2 || score === 3) {
+            bar.style.width = '65%';
+            bar.className = 'strength-bar bg-yellow-500';
+            text.innerText = 'Strength: Medium (Acceptable)';
+            text.className = 'text-xs font-bold text-yellow-600';
+        } else if (score === 4) {
+            bar.style.width = '100%';
+            bar.className = 'strength-bar bg-green-500';
+            text.innerText = 'Strength: Strong (Secure)';
+            text.className = 'text-xs font-bold text-green-600';
+        }
+
+        checkMatch();
+    }
+
+    function updateRuleUI(elementId, isValid) {
+        const el = document.getElementById(elementId);
+        if (isValid) {
+            el.className = 'text-green-600 font-bold';
+            el.innerHTML = '<i class="fas fa-check-circle text-xs mr-1"></i> ' + el.innerText.replace(/^.*?\s/, '');
+        } else {
+            el.className = 'text-slate-400';
+            el.innerHTML = '<i class="fas fa-circle text-xs mr-1"></i> ' + el.innerText.replace(/^.*?\s/, '');
+        }
+    }
+
+    function checkMatch() {
+        const newPass = document.getElementById('newPassword').value;
+        const rePass = document.getElementById('reNewPassword').value;
+        const matchText = document.getElementById('matchText');
+
+        if (rePass.length === 0) {
+            matchText.innerText = '';
+            return;
+        }
+
+        if (newPass === rePass) {
+            matchText.innerText = '✓ Passwords match perfectly';
+            matchText.className = 'text-xs font-bold text-green-600 mt-1 d-block';
+        } else {
+            matchText.innerText = '✕ Passwords do not match';
+            matchText.className = 'text-xs font-bold text-red-500 mt-1 d-block';
+        }
+    }
+
+    function validateForm(event) {
+        const newPass = document.getElementById('newPassword').value;
+        const rePass = document.getElementById('reNewPassword').value;
+
+        if (currentStrengthScore < 2) {
+            event.preventDefault();
+            Swal.fire({
+                icon: 'warning',
+                title: 'Weak Password',
+                text: 'Please create a stronger password according to international security standards!',
+                confirmColor: '#00264d'
+            });
+            return false;
+        }
+
+        if (newPass !== rePass) {
+            event.preventDefault();
+            Swal.fire({
+                icon: 'error',
+                title: 'Mismatch',
+                text: 'New password and confirmation password do not match.',
+                confirmColor: '#00264d'
+            });
+            return false;
+        }
+        return true;
+    }
+
+    function openProfilePopup() {
+        $('#profileModal').modal('show');
+    }
+</script>
+
+
+
+
+    <script src="/static/js/translations.js?v=4.0"></script>
+</body>
+<script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+</html>

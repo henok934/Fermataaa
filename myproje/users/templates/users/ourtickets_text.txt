@@ -1,0 +1,15 @@
+select route
++251-11-551 82 92
+ticket
+home
+Select for Register
+Bus Registor
+Select for Update
+Update Bus
+Select for Show
+My Routes
+My Bus
+Booked Ticket
+Select for Delete
+Delete Bus
+Logout

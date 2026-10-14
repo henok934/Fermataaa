@@ -1,0 +1,43 @@
+Busfermata | Route Mapping & Dispatch Logs
+Support Helpline:
++251975143134
+Logout
+BUSFERMATA
+Share Co.
+LEVEL:
+Home
+Registry
+Define New Route
+Add New Bus
+Add Special Route
+Register Share Co.
+Add System Admin
+Register Agent
+Add Terminal Hub
+Set Tariff Fee
+Operational
+Active Deployments
+Route Data
+Bus Status
+Change Bus
+Active Route
+Analytics
+Route Mapping
+Booked Tickets
+Revenue Analytics
+View Share Cos.
+User Registry
+View Buses
+Passenger Feedback
+Booker Registry
+Data Control
+Update Bus
+Delete Route
+Delete Ticket
+Delete Bus
+Remove Admin
+Remove Share Co.
+Remove Terminal
+Delete Feedback
+Delete Agent
+Report Start Date

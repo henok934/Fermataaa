@@ -1,0 +1,74 @@
+Route
++251 975143134
+login
+Ticket
+home
+Select for Register
+Add Sc
+Register Route
+Register Admin
+Registor Booker
+Register City
+Add Service Value
+Select for Update
+Change Bus
+Share Company Update
+Active Routes
+Service Fee Update
+Select for Show
+Show Routes
+Show Users
+Current Balance
+show s.c
+Show Buses
+Show Comments
+Booker
+Booked Ticket
+Select for Delete
+Delete Admin
+Delete Share Company
+Delete City
+Delete Comment
+Delete Route
+Booker Delete
+Delete Ticket
+Logout
+home
+Select for Register
+Register Route
+Register Admin
+Registor Booker
+Register City
+Add SC
+Add Service Value
+Select for Update
+Change Bus
+Share Company Update
+Active Routes
+Service Fee Update
+Select for Show
+show routes
+show Users
+show s.c
+show s.c
+show sc
+show sc
+show Buses
+Show Comments
+Booker
+Booked Ticket
+Select for Delete
+Delete Admin
+Delete Share Company
+Delete Comment
+Delete City
+Delete Route
+Booker Delete
+Delete driver
+Delete Ticket
+Logout
+x
+✔
+Register Route
+Departure
+City:

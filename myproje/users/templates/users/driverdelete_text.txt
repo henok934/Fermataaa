@@ -1,0 +1,16 @@
+driver delete
++251 975143134
+LOGOUT
+TRANSIT SYSTEM
+Share Company
+HOME
+Bus Register
+Register New
+Update Bus
+Edit Details
+VIEW DATA
+Routes
+Bus
+DELETE ACTIONS
+Remove Bus
+From

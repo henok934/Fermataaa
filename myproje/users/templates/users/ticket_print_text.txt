@@ -1,0 +1,30 @@
+Print Ticket -  | Busfermata
+Ethiopian National Digital Transport Network
+LOGOUT
+BUSFERMATA
+Digital Technology
+HOME
+ABOUT US
+MY TICKET
+BOOK NOW
+አትም (Print Ticket)
+ወደ ትኬቶቼ ተመለስ
+BUSFERMATA TRANSPORT
+የኢትዮጵያ ዲጂታል የትራንስፖርት አውታር
+PNR:
+የተጓዥ ስም:
+ስልክ ቁጥር:
+መነሻ ቦታ:
+መድረሻ ቦታ:
+የጉዞ ቀን:
+ወንበር ቁጥር:
+የአውቶቡስ ሰሌዳ:
+የጎን ቁጥር:
+የክፍያ መጠን:
+ETB
+የክፍያ ሁኔታ:
+የተከፈለ
+ያልተከፈለ
+ትኬቱ የተቆረጠበት ሰዓት:
+መልካም ጉዞ ይሁንልዎ!
+© 2026 Busfermata Digital Technology • Addis Ababa, Ethiopia

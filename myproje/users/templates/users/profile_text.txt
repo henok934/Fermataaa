@@ -1,0 +1,45 @@
+Busfermata | System Admin Profile
+System Administration Portal
+LOGOUT
+BUSFERMATA
+Digital Technology
+📋 Registry
+➕ Define New Route
+🏢 Register Share Company
+👤 Add System Admin
+🎫 Register Ticket Agent
+🏙️ Add Terminal Hub
+💵 Set Service Tariff
+⚙️ System Config
+🟢 Active Deployments
+🚌 Change Bus
+✏️ Edit Share Company
+👤 Edit Profile
+📊 System Analytics
+🗺️ Route Mapping
+🎟️ Booked Tickets
+💰 Revenue Analytics
+🏬 View Share Companies
+👥 User Registry
+🚍 View Buses
+💬 Passenger Feedback
+📋 Booker Registry
+🗑️ Data Control
+❌ Remove Admin
+❌ Remove Share Co.
+❌ Remove Terminal
+❌ Delete Feedback
+❌ Delete Booker Agent
+❌ Delete Route
+❌ Delete Ticket
+Super Admin
+Subadmin
+View Interactive Profile
+STATUS: ACTIVE
+REGISTRY ID:
+SECURITY LEVEL:
+Tier 1 (Global Master)
+Tier 2 Regional Hub
+International Security Protocol Sync
+Enforcing Global Standard Encryption Standards
+CURRENT ACCESS KEY

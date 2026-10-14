@@ -1,0 +1,515 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/jpeg" href="{% static 'images/l.jpeg' %}">
+    <link rel="icon" type="image/jpeg" href="{% static 'images/l.jpeg' %}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Busfermata | Route Mapping & Dispatch Logs</title>
+    
+    <!-- Typography & Iconography -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Core Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        :root {
+            --brand-navy: #00264d;
+            --brand-gold: #ffcc00;
+            --brand-gold-hover: #e6b800;
+            --brand-dark: #0f172a;
+            --surface-gray: #f8fafc;
+            --border-light: #e2e8f0;
+            --primary-blue: #0A3977;
+            --accent-green: #059669;
+            --accent-red: #dc2626;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--surface-gray);
+            margin: 0;
+            color: #334155;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- TOP BAR --- */
+        .top-bar {
+            background: var(--brand-dark);
+            color: #ffffff;
+            padding: 8px 0;
+            font-size: 13px;
+        }
+        .top-bar a.logout-link {
+            color: #f87171;
+            transition: color 0.2s ease;
+        }
+        .top-bar a.logout-link:hover {
+            color: #ef4444;
+            text-decoration: none;
+        }
+
+        /* --- NAVBAR STYLING --- */
+        .navbar-main {
+            background: #ffffff;
+            padding: 12px 0;
+            border-bottom: 4px solid var(--brand-gold);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .brand-logo-container {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            border: 3px solid var(--brand-gold);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            flex-shrink: 0;
+        }
+        .brand-text {
+            font-weight: 800;
+            color: var(--primary-blue);
+            font-size: 22px;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            line-height: 1;
+        }
+        
+        /* Custom Nav Select Boxes */
+        .custom-nav-select {
+            border: 2px solid var(--border-light);
+            background-color: #ffffff;
+            font-size: 11px;
+            font-weight: 800;
+            border-radius: 8px;
+            height: 38px;
+            min-width: 155px;
+            color: var(--brand-navy);
+            text-transform: uppercase;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.2s ease;
+            padding: 0 8px;
+        }
+        .custom-nav-select:hover {
+            border-color: var(--brand-navy);
+            background-color: #f1f5f9;
+        }
+        .custom-nav-select.danger-select {
+            color: var(--accent-red);
+            border-color: #fca5a5;
+        }
+        .custom-nav-select.danger-select:hover {
+            border-color: var(--accent-red);
+            background-color: #fef2f2;
+        }
+
+        /* --- FILTER SECTION CARD --- */
+        .filter-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            padding: 24px 28px;
+            margin-top: 30px;
+            border: 1px solid var(--border-light);
+        }
+        .filter-label {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--brand-navy);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .form-control-custom {
+            border: 2px solid var(--border-light);
+            border-radius: 8px;
+            height: 44px;
+            padding: 0 14px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--brand-dark);
+            background: var(--surface-gray);
+            outline: none;
+            transition: all 0.2s ease;
+        }
+        .form-control-custom:focus {
+            border-color: var(--brand-navy);
+            background: #ffffff;
+            box-shadow: none;
+        }
+        .btn-filter {
+            background: var(--brand-gold);
+            color: var(--brand-navy);
+            font-weight: 800;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            height: 44px;
+            border-radius: 8px;
+            border: none;
+            width: 100%;
+            transition: all 0.2s ease;
+            box-shadow: 0 3px 10px rgba(255, 204, 0, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .btn-filter:hover {
+            background: var(--brand-gold-hover);
+            transform: translateY(-1px);
+        }
+
+        /* --- DATA TABLE CARD --- */
+        .data-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.04);
+            padding: 28px;
+            margin-top: 30px;
+            border: 1px solid var(--border-light);
+            border-top: 5px solid var(--brand-navy);
+        }
+        .card-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 16px;
+        }
+        .card-heading-title {
+            color: var(--brand-navy);
+            font-weight: 800;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Modern Table Formatting */
+        .styled-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        .styled-table th {
+            background: #f1f5f9;
+            padding: 14px 16px;
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 800;
+            color: #64748b;
+            text-align: center;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 2px solid var(--border-light);
+        }
+        .styled-table td {
+            padding: 14px 16px;
+            background: #ffffff;
+            border-bottom: 1px solid var(--border-light);
+            vertical-align: middle;
+            text-align: center;
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 13px;
+        }
+        .styled-table tr:hover td {
+            background-color: #f8fafc;
+        }
+
+        /* Badges & Action Buttons */
+        .badge-seat {
+            background: #e0f2fe;
+            color: #0369a1;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .plate-badge {
+            background: #f1f5f9;
+            color: #334155;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            font-size: 12px;
+            border: 1px solid #cbd5e1;
+            display: inline-block;
+        }
+        .price-label {
+            color: var(--accent-green);
+            font-weight: 800;
+        }
+        .btn-action-tickets {
+            background: var(--accent-red);
+            color: #ffffff !important;
+            font-weight: 800;
+            font-size: 11px;
+            text-transform: uppercase;
+            padding: 7px 16px;
+            border-radius: 6px;
+            border: none;
+            transition: all 0.2s ease;
+            text-decoration: none !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 2px 6px rgba(220, 38, 38, 0.2);
+        }
+        .btn-action-tickets:hover {
+            background: #b91c1c;
+            transform: translateY(-1px);
+        }
+
+        /* --- FOOTER --- */
+        .footer-main {
+            background: var(--brand-navy);
+            color: white;
+            padding: 25px 0;
+            margin-top: auto;
+            border-top: 4px solid var(--brand-gold);
+        }
+
+        /* Clean Hide Google Translate Overlays */
+        .goog-te-banner-frame, .goog-te-banner, .skiptranslate, #goog-gt-tt, .goog-te-balloon-frame { 
+            display: none !important; 
+            visibility: hidden !important; 
+        }
+        body { top: 0px !important; position: static !important; }
+    </style>
+</head>
+<body>
+
+    <!-- TOP INFORMATIONAL BAR -->
+    <div class="top-bar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <span><i class="fas fa-headset mr-2 text-warning"></i> Support Helpline: <b>+251975143134</b></span>
+            <a href="{% url 'logout' %}" class="logout-link font-weight-bold text-uppercase small">
+                <i class="fas fa-power-off mr-1"></i> Logout
+            </a>
+        </div>
+    </div>
+
+    <!-- MAIN BRAND NAVIGATION -->
+    <nav class="navbar navbar-expand-xl navbar-light navbar-main">
+        <div class="container">
+            <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center text-decoration-none mr-4">
+                <div class="brand-logo-container mr-3">
+                    {% if company.logo %}
+                        <img src="{{ company.logo.url }}" alt="Company Logo" style="width: 100%; height: 100%; object-fit: contain;">
+                    {% else %}
+                        <i class="fas fa-bus text-primary" style="font-size: 26px;"></i>
+                    {% endif %}
+                </div>
+                <div>
+                    <span class="brand-text d-block">BUSFERMATA</span>
+                    <div class="d-flex align-items-center mt-1">
+                        <small class="font-weight-bold text-muted" style="font-size: 10px; letter-spacing: 0.5px; text-transform: uppercase;">
+                            {% if name %}{{ name }}{% else %}{{ username }}{% endif %} Share Co.
+                        </small>
+                        {% if level %}
+                            <span class="badge badge-warning text-dark font-weight-bold ml-2" style="font-size: 9px; padding: 2px 6px;">LEVEL: {{ level }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#adminNavbar" aria-controls="adminNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="adminNavbar">
+                <div class="navbar-nav ml-auto align-items-center gap-2">
+                    
+                    <a href="{% url 'home' %}" class="btn btn-sm btn-outline-primary font-weight-bold text-uppercase mx-xl-1" style="border-radius: 8px; height: 38px; line-height: 24px; padding: 0 16px;">
+                        <i class="fas fa-home mr-1"></i> <span data-i18n="home">Home</span>
+                    </a>
+
+                    <!-- Dropdown 1: Registry -->
+                    <select onchange="if(this.value !== '#') location.href = this.value;" class="custom-nav-select mx-xl-1">
+                        <option value="#" selected disabled>Registry</option>
+                        <option value="{% url 'route' %}">Define New Route</option>
+                        <option value="{% url 'businsert' %}">Add New Bus</option>
+                        <option value="{% url 'special_route' %}">Add Special Route</option>
+                        {% if user.city == "Addis Ababa" %}
+                            <option value="{% url 'sc' %}">Register Share Co.</option>
+                            <option value="{% url 'registor' %}">Add System Admin</option>
+                            <option value="{% url 'worker' %}">Register Agent</option>
+                            <option value="{% url 'city' %}">Add Terminal Hub</option>
+                            <option value="{% url 'service_fee' %}">Set Tariff Fee</option>
+                        {% endif %}
+                    </select>
+
+                    <!-- Dropdown 2: Configuration & Operational -->
+                    <select onchange="if(this.value !== '#') location.href = this.value;" class="custom-nav-select mx-xl-1">
+                        <option value="#" selected disabled>Operational</option>
+                        <option value="{% url 'active' %}">Active Deployments</option>
+                        <option value="{% url 'myroute' %}">Route Data</option>
+                        <option value="{% url 'mybus' %}">Bus Status</option>
+                        <option value="{% url 'act' %}">Change Bus</option>
+                        {% if level == 'Special Bus' %}
+                            <option value="{% url 'special_active' %}">Active Route</option>
+                        {% endif %}
+                    </select>
+
+                    <!-- Dropdown 3: System Analytics -->
+                    <select onchange="if(this.value !== '#') location.href = this.value;" class="custom-nav-select mx-xl-1">
+                        <option value="#" selected disabled>Analytics</option>
+                        <option value="{% url 'routes' %}">Route Mapping</option>
+                        <option value="{% url 'ticketinfo' %}">Booked Tickets</option>
+                        <option value="{% url 'totalballance' %}">Revenue Analytics</option>
+                        <option value="{% url 'sce' %}">View Share Cos.</option>
+                        {% if user.city == "Addis Ababa" %}
+                            <option value="{% url 'users' %}">User Registry</option>
+                            <option value="{% url 'buses' %}">View Buses</option>
+                            <option value="{% url 'comments' %}">Passenger Feedback</option>
+                        {% endif %}
+                        <option value="{% url 'driver' %}">Booker Registry</option>
+                    </select>
+
+                    <!-- Dropdown 4: Data Control -->
+                    <select onchange="if(this.value !== '#') location.href = this.value;" class="custom-nav-select danger-select mx-xl-1">
+                        <option value="#" selected disabled>Data Control</option>
+                        <option value="{% url 'updatebus' %}">Update Bus</option>
+                        <option value="{% url 'routedelete' %}">Delete Route</option>
+                        <option value="{% url 'delete_ticket' %}">Delete Ticket</option>
+                        <option value="{% url 'busdelete' %}">Delete Bus</option>
+                        {% if user.city == "Addis Ababa" %}
+                            <option value="{% url 'admindelete' %}">Remove Admin</option>
+                            <option value="{% url 'scdelete' %}">Remove Share Co.</option>
+                            <option value="{% url 'citydelete' %}">Remove Terminal</option>
+                            <option value="{% url 'commentdelete' %}">Delete Feedback</option>
+                            <option value="{% url 'workerdelete' %}">Delete Agent</option>
+                        {% endif %}
+                    </select>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE MAIN CONTENT -->
+    <main class="container my-4">
+
+        <!-- FILTER FORM CARD -->
+        <div class="filter-card">
+            <form action="{% url 'subspecific' %}" method="post">
+                {% csrf_token %}
+                <div class="form-row align-items-end">
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <label for="from" class="filter-label">
+                            <i class="fas fa-calendar-alt text-muted"></i> Report Start Date
+                        </label>
+                        <input type="date" name="from" id="from" class="form-control form-control-custom" required>
+                    </div>
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <label for="to" class="filter-label">
+                            <i class="fas fa-calendar-check text-muted"></i> Report End Date
+                        </label>
+                        <input type="date" name="to" id="to" class="form-control form-control-custom" required>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn-filter">
+                            <i class="fas fa-file-invoice"></i> Generate Report
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- DISPATCH / MANIFEST LEDGER CARD -->
+        <div class="data-card">
+            <div class="card-heading">
+                <h4 class="card-heading-title">
+                    <i class="fas fa-database text-warning"></i> Passenger Manifest Ledger Logs
+                </h4>
+                <small class="text-muted font-weight-bold">System Dispatch Overview</small>
+            </div>
+
+            <div class="table-responsive">
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 40px;">#</th>
+                            <th>Deployment Date</th>
+                            <th>Departure</th>
+                            <th>Destination</th>
+                            <th>Plate No.</th>
+                            <th>Side No.</th>
+                            <th>Tariff</th>
+                            <th style="width: 140px;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for r in route %}
+                        <tr>
+                            <td class="font-weight-bold">{{ forloop.counter }}</td>
+                            <td style="color: #4f46e5;">{{ r.date }}</td>
+                            <td class="font-weight-bold">{{ r.depcity }}</td>
+                            <td class="font-weight-bold">{{ r.descity }}</td>
+                            <td><span class="plate-badge">{{ r.plate_no|default:r.side_no }}</span></td>
+                            <td><span class="plate-badge">{{ r.side_no }}</span></td>
+                            <td class="price-label">
+                                {{ r.price|default:"0.00" }} <small class="text-muted font-weight-normal">ETB</small>
+                            </td>
+                            <td>
+                                <a href="{% url 'subshowTicketsViewss' %}" class="btn-action-tickets">
+                                    <i class="fas fa-ticket-alt"></i> Tickets
+                                </a>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="8" class="text-center py-5 text-muted font-italic">
+                                <i class="fas fa-folder-open d-block mb-2" style="font-size: 28px; color: #94a3b8;"></i>
+                                No dispatch or manifest records found for the selected parameters.
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer-main">
+        <div class="container d-flex justify-content-between align-items-center flex-wrap">
+            <p class="mb-0 small"><i class="fas fa-headset mr-1"></i> HELPLINE: +251 975 143 134</p>
+            <p class="mb-0 small">© 2026 <b>Busfermata Digital Technology</b> • National Travel Solutions</p>
+        </div>
+    </footer>
+
+    <!-- CORE SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- GOOGLE TRANSLATE INTEGRATION -->
+    
+    
+    
+    <script src="/static/js/translations.js?v=4.0"></script>
+</body>
+</html>

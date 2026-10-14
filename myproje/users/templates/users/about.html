@@ -1,0 +1,198 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="{% static 'images/l.jpeg' %}" rel="icon" type="image/jpeg"/>
+<title><span data-i18n="aboutUs">About Us</span> | Busfermata Digital Technology</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="{% static 'styles/bootstrap4/bootstrap.min.css' %}" rel="stylesheet"/>
+<style>
+        :root {
+            --brand-navy: #00264d;
+            --brand-gold: #ffcc00;
+            --brand-dark: #0f172a;
+            --text-main: #1e293b;
+            --text-muted: #334155;
+            --accent-teal: #007A78;
+        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f8fafc; color: var(--text-main); margin: 0; line-height: 1.6; }
+        .top-bar { background: var(--brand-dark); color: #fff; padding: 8px 0; font-size: 0.8125rem; }
+        .top-bar a { color: var(--brand-gold); font-weight: 700; text-decoration: none; }
+        .navbar-main { background: #fff; padding: 10px 0; border-bottom: 4px solid var(--brand-gold); box-shadow: 0 4px 20px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 1000; }
+        .brand-area { display: flex; align-items: center; text-decoration: none !important; }
+        .brand-logo { height: 60px; width: auto; margin-right: 12px; object-fit: contain; }
+        .brand-text { font-weight: 800; color: var(--brand-navy); font-size: 1.75rem; text-transform: uppercase; line-height: 1; }
+        .brand-tagline { color: var(--accent-teal); font-weight: 700; font-size: 0.75rem; display: block; margin-top: 2px; }
+        .nav-link { color: var(--brand-navy) !important; font-weight: 700; text-transform: uppercase; font-size: 0.875rem; padding: 8px 16px !important; }
+        .about-hero { background: linear-gradient(135deg, rgba(0, 38, 77, 0.92) 0%, rgba(15, 23, 42, 0.95) 100%), url('{% static "images/home_slider.jpg" %}'); background-size: cover; background-position: center; color: #fff; padding: 90px 0 110px; text-align: center; }
+        .concept-card { background: #fff; padding: 48px; border-radius: 20px; margin-top: -50px; position: relative; z-index: 10; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+        .feature-card-direct { border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 10px 25px rgba(0,0,0,0.04); height: 100%; display: flex; flex-direction: column; border: 1px solid #e2e8f0; }
+        .card-header-vibrant { padding: 32px 24px 24px; text-align: center; color: #fff; background: var(--brand-navy); border-bottom: 4px solid var(--brand-gold); }
+        .card-icon-badge { width: 68px; height: 68px; border-radius: 50%; background: rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 1.75rem; color: var(--brand-gold); }
+        .card-body-vibrant { padding: 28px 24px; text-align: center; color: var(--text-muted); font-size: 1rem; line-height: 1.7; flex-grow: 1; }
+        .feedback-card-container { background: #fff; border-radius: 20px; border: 1px solid #e2e8f0; box-shadow: 0 15px 35px rgba(0,0,0,0.05); overflow: hidden; margin: 50px 0; }
+        .card-header-feedback { background: var(--brand-navy); color: #fff; padding: 32px 28px; text-align: center; border-bottom: 4px solid var(--brand-gold); }
+        .card-body-custom { padding: 40px 32px; }
+        .form-label-custom { font-weight: 700; color: var(--brand-navy); font-size: 0.875rem; text-transform: uppercase; margin-bottom: 8px; display: block; }
+        .form-control-custom { height: 50px; border-radius: 10px; border: 2px solid #e2e8f0; padding: 10px 16px; font-size: 0.95rem; background-color: #f8fafc; }
+        .btn-submit-comment { width: 100%; height: 52px; background-color: var(--brand-navy); color: #fff; border: 2px solid var(--brand-navy); border-radius: 10px; font-weight: 800; text-transform: uppercase; cursor: pointer; }
+        .footer-main { background: var(--brand-navy); color: #fff; padding: 50px 0 30px; text-align: center; }
+</style>
+</head>
+<body>
+
+<header class="top-bar">
+<div class="container d-flex justify-content-between align-items-center">
+<span data-i18n="topBarTitle"><i class="fas fa-bus mr-2"></i> Ethiopian National Transport Standards</span>
+<a href="{% url 'login' %}"><i class="fas fa-lock mr-1"></i> <span data-i18n="staffPortal"><span data-i18n="staffPortal">STAFF PORTAL</span></span></a>
+</div>
+</header>
+
+<nav class="navbar navbar-expand-lg navbar-light navbar-main">
+<div class="container">
+<a class="brand-area" href="{% url 'home' %}">
+<img alt="Busfermata Logo" class="brand-logo" src="{% static 'images/l.jpeg' %}"/>
+<div>
+<span class="brand-text">BUSFERMATA</span>
+<span class="brand-tagline">Digital Technology</span>
+</div>
+</a>
+<button class="navbar-toggler border-0" data-target="#navPortal" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse" id="navPortal">
+<ul class="navbar-nav ml-auto align-items-center">
+<li class="nav-item"><a class="nav-link" data-i18n="aboutUs" href="{% url 'about' %}"><span data-i18n="aboutUs">About Us</span></a></li>
+<li class="nav-item"><a class="nav-link" data-i18n="myTicket" href="{% url 'get_ticket' %}"><span data-i18n="myTicket">My Ticket</span></a></li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="langDrop"><i class="fas fa-globe mr-1" style="color:var(--accent-teal);"></i> <span id="currentLang">English</span></a>
+<div class="dropdown-menu dropdown-menu-right shadow-lg border-0 rounded-lg p-2">
+<button class="dropdown-item rounded py-2" onclick="changeLanguage('en', 'English')" type="button">English <small class="text-muted float-right">EN</small></button>
+<button class="dropdown-item rounded py-2" onclick="changeLanguage('am', 'አማርኛ')" type="button">አማርኛ <small class="text-success float-right">AM</small></button>
+<button class="dropdown-item rounded py-2" onclick="changeLanguage('om', 'Afaan Oromoo')" type="button">Afaan Oromoo <small class="text-muted float-right">OR</small></button>
+<button class="dropdown-item rounded py-2" onclick="changeLanguage('ti', 'ትግርኛ')" type="button">ትግርኛ <small class="text-muted float-right">TI</small></button>
+</div>
+</li>
+<li class="nav-item ml-lg-3">
+<a class="btn px-4 py-2 font-weight-bold" data-i18n="bookNowBtn" href="{% url 'book' %}" style="background: #06b6d4; color: white; border-radius: 8px;">BOOK NOW</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+
+<section class="about-hero">
+<div class="container">
+<h1 data-i18n="aboutHeroTitle">Transforming Ethiopian Transit</h1>
+<p data-i18n="aboutHeroSubtitle">Connecting passengers, bus operators, and logistics with seamless modern software solutions.</p>
+</div>
+</section>
+
+<main class="container">
+<article class="concept-card">
+<h2 data-i18n="visionTitle">Our Vision & Mission</h2>
+<p class="concept-lead"><strong>Busfermata Digital Technology</strong> <span data-i18n="visionLead">is a visionary, unique, and independent logistics platform established to modernize the travel experience.</span></p>
+<p class="concept-body" data-i18n="visionBody">Founded by a dedicated family of software creators and transport industry experts who have spent decades working at the heart of the sector. By merging high-level technical expertise with deep real-world experience, we are bridging the digital gap in Ethiopia’s travel industry. Our platform is built to resolve the daily challenges of travel—making every journey across the nation faster, safer, and more reliable.</p>
+</article>
+
+<div class="row mt-5">
+<div class="col-md-4 mb-4">
+<div class="feature-card-direct">
+<div class="card-header-vibrant"><div class="card-icon-badge"><i class="fas fa-microchip"></i></div><h3 class="m-0 font-weight-bold" data-i18n="card1Title" style="font-size: 1.35rem;">Software Built</h3></div>
+<div class="card-body-vibrant" data-i18n="card1Desc">Developed by engineers who understand secure, high-speed digital infrastructure. Enterprise-grade ticket reservation system optimized for scale.</div>
+</div>
+</div>
+<div class="col-md-4 mb-4">
+<div class="feature-card-direct">
+<div class="card-header-vibrant"><div class="card-icon-badge"><i class="fas fa-id-card"></i></div><h3 class="m-0 font-weight-bold" data-i18n="card2Title" style="font-size: 1.35rem;">Driver Insight</h3></div>
+<div class="card-body-vibrant" data-i18n="card2Desc">Designed with direct feedback from Ethiopian drivers to ensure practical solutions, simplified schedules, and effortless passenger management.</div>
+</div>
+</div>
+<div class="col-md-4 mb-4">
+<div class="feature-card-direct">
+<div class="card-header-vibrant"><div class="card-icon-badge"><i class="fas fa-bus"></i></div><h3 class="m-0 font-weight-bold" data-i18n="card3Title" style="font-size: 1.35rem;">Owner Driven</h3></div>
+<div class="card-body-vibrant" data-i18n="card3Desc">Tailored for bus transport owners to maximize efficiency, operational profit, fleet performance, and service quality across national transit lines.</div>
+</div>
+</div>
+</div>
+
+<section class="row justify-content-center">
+<div class="col-lg-8 col-md-10">
+<div class="feedback-card-container">
+<div class="card-header-feedback">
+<h3 data-i18n="feedbackHeader"><i class="fas fa-paper-plane mr-2"></i>Send Us Feedback</h3>
+<p data-i18n="feedbackSub">We value your thoughts! Help us improve your travel experience.</p>
+</div>
+<div class="card-body-custom">
+    {% if error %}
+    <div class="alert alert-danger font-weight-bold"><i class="fas fa-exclamation-circle mr-2"></i>{{ error }}</div>
+    {% endif %}
+    {% if success %}
+    <div class="alert alert-success font-weight-bold"><i class="fas fa-check-circle mr-2"></i>{{ success }}</div>
+    {% endif %}
+<form id="feedbackForm" action="{% url 'about' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group mb-4">
+        <label class="form-label-custom"><span data-i18n="labelFullName">Full Name</span> *</label>
+        <input class="form-control form-control-custom" data-i18n-placeholder="placeholderFullName" name="name" placeholder="Enter your full name" required type="text"/>
+    </div>
+    <div class="row">
+        <div class="col-md-6 form-group mb-4">
+            <label class="form-label-custom"><span data-i18n="labelPhone">Phone Number</span> *</label>
+            <input class="form-control form-control-custom" maxlength="10" name="phone" placeholder="09xxxxxxxx" required type="tel"/>
+        </div>
+        <div class="col-md-6 form-group mb-4">
+            <label class="form-label-custom"><span data-i18n="labelEmail">Email Address</span> *</label>
+            <input class="form-control form-control-custom" name="email" placeholder="name@example.com" required type="email"/>
+        </div>
+    </div>
+    <div class="form-group mb-4">
+        <label class="form-label-custom"><span data-i18n="labelMessage">Message</span> *</label>
+        <textarea class="form-control form-control-custom" data-i18n-placeholder="placeholderMessage" name="message" placeholder="Tell us about your experience..." required rows="4"></textarea>
+    </div>
+    <button class="btn-submit-comment" type="submit"><i class="fas fa-paper-plane mr-2"></i><span data-i18n="sendFeedbackBtn">Send Feedback</span></button>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="footer-main">
+<div class="container">
+<h3 class="mb-3" style="font-weight: 800; font-size: 1.5rem;" data-i18n="footerTitle">Busfermata Digital Technology</h3>
+<p style="color: #cbd5e1; margin-bottom: 20px;" data-i18n="footerCopy">© 2026 Busfermata • National Travel Solutions</p>
+</div>
+</footer>
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/translations.js' %}?v=3.0"></script>
+
+<!-- የቋንቋ ድሮፕዳውን አውቶማቲክ መክፈቻ እና መዝጊያ ስክሪፕት -->
+<script>
+$(document).ready(function(){
+    $('#langDrop').on('click', function(e) {
+        e.preventDefault();
+        $(this).parent('.dropdown').toggleClass('show');
+        $(this).next('.dropdown-menu').toggleClass('show');
+    });
+
+    $('.dropdown-menu button').on('click', function() {
+        $('.dropdown').removeClass('show');
+        $('.dropdown-menu').removeClass('show');
+    });
+
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.dropdown').length) {
+            $('.dropdown').removeClass('show');
+            $('.dropdown-menu').removeClass('show');
+        }
+    });
+});
+</script>
+    <script src="/static/js/translations.js?v=4.0"></script>
+</body>
+</html>
